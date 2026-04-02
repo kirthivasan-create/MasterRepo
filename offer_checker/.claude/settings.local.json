@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker build:*)",
+      "Bash(docker run:*)",
+      "Bash(minikube status:*)",
+      "Bash(\"/c/Program Files/Kubernetes/Minikube/minikube.exe\" status)",
+      "Bash(where.exe minikube:*)",
+      "Bash(ls /c/Users/16782/AppData/Local/minikube*)",
+      "Bash(kubectl version:*)",
+      "Bash(where.exe kubectl:*)",
+      "Bash(curl -Lo /c/Users/16782/minikube.exe https://github.com/kubernetes/minikube/releases/latest/download/minikube-windows-amd64.exe)",
+      "Bash(/c/Users/16782/minikube.exe version:*)",
+      "Bash(/c/Users/16782/minikube.exe start:*)",
+      "Bash(/c/Users/16782/minikube.exe image:*)",
+      "Bash(kubectl apply:*)",
+      "Bash(kubectl get:*)",
+      "Bash(kubectl logs:*)",
+      "Bash(/c/Users/16782/minikube.exe service:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
