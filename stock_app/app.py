@@ -456,62 +456,50 @@ if st.button("Compare Stocks"):
             data = get_stock_data(ticker)
             stock_data.append((ticker, data))
         
-        # Display results in table format
-        cols = st.columns(5)
-        for i, (ticker, data) in enumerate(stock_data):
-            with cols[i]:
-                st.subheader(f"**{ticker}**")
-                
-                # Create table data
-                fundamentals = [
-                    {"Metric": "Price", "Value": f"${data['price']:.2f}" if data['price'] else "N/A", "Recommendation": ""},
-                    {"Metric": "P/E", "Value": data['pe'], "Recommendation": data['pe_rec']},
-                    {"Metric": "EPS Growth", "Value": data['eps'], "Recommendation": data['eps_rec']},
-                    {"Metric": "D/E", "Value": data['de'], "Recommendation": data['de_rec']},
-                    {"Metric": "Rev Growth", "Value": data['rev'], "Recommendation": data['rev_rec']},
-                    {"Metric": "Profit Margin", "Value": data['pm'], "Recommendation": data['pm_rec']},
-                ]
-                
-                technicals = [
-                    {"Metric": "RSI", "Value": data['rsi'], "Recommendation": data['rsi_rec']},
-                    {"Metric": "MACD", "Value": data['macd'], "Recommendation": data['macd_rec']},
-                    {"Metric": "Bollinger", "Value": data['bb'], "Recommendation": data['bb_rec']},
-                    {"Metric": "MA", "Value": data['ma'], "Recommendation": data['ma_rec']},
-                    {"Metric": "Volume", "Value": data['vol'], "Recommendation": data['vol_rec']},
-                    {"Metric": "Stochastic", "Value": data['stoch'], "Recommendation": data['stoch_rec']},
-                    {"Metric": "ADX", "Value": data['adx'], "Recommendation": data['adx_rec']},
-                    {"Metric": "ATR", "Value": data['atr'], "Recommendation": data['atr_rec']},
-                    {"Metric": "OBV", "Value": data['obv'], "Recommendation": data['obv_rec']},
-                    {"Metric": "Ichimoku", "Value": data['ichi'], "Recommendation": data['ichi_rec']},
-                    {"Metric": "Fib", "Value": data['fib'], "Recommendation": data['fib_rec']},
-                    {"Metric": "S/R", "Value": data['sr'], "Recommendation": data['sr_rec']},
-                ]
-                
-                st.markdown("**Fundamentals**")
-                fund_df = pd.DataFrame(fundamentals)
-                fund_config = {
-                    "Metric": st.column_config.TextColumn(width=120),
-                    "Value": st.column_config.TextColumn(width=500),
-                    "Recommendation": st.column_config.TextColumn(width=120),
-                }
-                st.dataframe(fund_df, column_config=fund_config, hide_index=True, use_container_width=False)
-                
-                st.markdown("**Technical Indicators**")
-                tech_df = pd.DataFrame(technicals)
-                tech_config = {
-                    "Metric": st.column_config.TextColumn(width=120),
-                    "Value": st.column_config.TextColumn(width=500),
-                    "Recommendation": st.column_config.TextColumn(width=120),
-                }
-                st.dataframe(tech_df, column_config=tech_config, hide_index=True, use_container_width=False)
-                
-                consolidated_color = get_rec_color(data['consolidated'])
-                st.markdown(f"**Consolidated: <span style='color:{consolidated_color}'>{data['consolidated']}</span>**", unsafe_allow_html=True)
-                
-                # Display image if available
-                img = get_rec_image(data['consolidated'])
-                if img:
-                    st.image(img, width=50)
+        # Build combined fundamentals table (all stocks side by side)
+        st.markdown("### Fundamentals")
+        fund_rows = []
+        for ticker, data in stock_data:
+            price_str = f"${data['price']:.2f}" if data['price'] else "N/A"
+            fund_rows.append({
+                "Stock": ticker,
+                "Price": price_str,
+                "P/E": f"{data['pe']} ({data['pe_rec']})",
+                "EPS Growth": f"{data['eps']} ({data['eps_rec']})",
+                "D/E": f"{data['de']} ({data['de_rec']})",
+                "Rev Growth": f"{data['rev']} ({data['rev_rec']})",
+                "Profit Margin": f"{data['pm']} ({data['pm_rec']})",
+            })
+        fund_df = pd.DataFrame(fund_rows)
+        st.dataframe(fund_df, hide_index=True, width="stretch")
+
+        # Build combined technicals table
+        st.markdown("### Technical Indicators")
+        tech_rows = []
+        for ticker, data in stock_data:
+            tech_rows.append({
+                "Stock": ticker,
+                "RSI": f"{data['rsi']} ({data['rsi_rec']})",
+                "MACD": f"{data['macd']} ({data['macd_rec']})",
+                "Bollinger": f"{data['bb']} ({data['bb_rec']})",
+                "MA": f"{data['ma']} ({data['ma_rec']})",
+                "Volume": f"{data['vol']} ({data['vol_rec']})",
+                "Stochastic": f"{data['stoch']} ({data['stoch_rec']})",
+                "ADX": f"{data['adx']} ({data['adx_rec']})",
+                "ATR": f"{data['atr']} ({data['atr_rec']})",
+                "OBV": f"{data['obv']} ({data['obv_rec']})",
+                "Ichimoku": f"{data['ichi']} ({data['ichi_rec']})",
+                "Fib": f"{data['fib']} ({data['fib_rec']})",
+                "S/R": f"{data['sr']} ({data['sr_rec']})",
+            })
+        tech_df = pd.DataFrame(tech_rows)
+        st.dataframe(tech_df, hide_index=True, width="stretch")
+
+        # Consolidated recommendations
+        st.markdown("### Consolidated Recommendation")
+        for ticker, data in stock_data:
+            consolidated_color = get_rec_color(data['consolidated'])
+            st.markdown(f"**{ticker}: <span style='color:{consolidated_color}'>{data['consolidated']}</span>**", unsafe_allow_html=True)
 
 # Claude AI Integration
 st.header("Ask Claude AI about Stocks")
