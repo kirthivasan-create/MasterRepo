@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: offer-verifier
+  labels:
+    app: offer-verifier
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: offer-verifier
+  template:
+    metadata:
+      labels:
+        app: offer-verifier
+    spec:
+      containers:
+        - name: offer-verifier
+          image: offer-verifier:latest
+          imagePullPolicy: Never
