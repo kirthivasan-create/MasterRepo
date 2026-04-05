@@ -1,0 +1,197 @@
+[
+  {
+    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567801",
+    "title": "PEGA Weekly Update - April 05, 2026",
+    "content": "Pegasystems launched Pega Infinity 26.1 featuring the Autonomous Decisioning Engine (ADE), which combines real-time event processing with generative AI for self-tuning next-best-action strategies. Early adopters reported a 34% lift in offer acceptance rates. GenAI Blueprint now supports multi-application workflow generation from natural language prompts. Pega Cloud achieved FedRAMP High authorization for federal workloads. Customer Decision Hub 9.2 introduces Adaptive Gradient Models replacing legacy Naive Bayes for improved predictive accuracy. Constellation DX API v3 delivers enhanced server-side rendering and WCAG 2.2 AA accessibility. Forrester named Pega a Leader in Digital Process Automation for Q1 2026.",
+    "category": "PEGA",
+    "tags": [
+      "auto-generated",
+      "news-update",
+      "weekly"
+    ],
+    "created_at": "2026-04-05T08:00:00",
+    "updated_at": "2026-04-05T08:00:00"
+  },
+  {
+    "id": "b2c3d4e5-f6a7-8901-bcde-f12345678902",
+    "title": "Salesforce Weekly Update - April 05, 2026",
+    "content": "Salesforce unveiled Agentforce 2.0 with Multi-Agent Orchestration at TrailblazerDX 2026, enabling specialized AI agents to collaborate on complex workflows across sales, deal desk, and legal review. The company acquired DataWeave for $1.4B to strengthen Data Cloud with competitive intelligence capabilities. Einstein GPT Trust Layer received ISO 42001 certification for AI management systems. Spring 26 release reached GA with Dynamic Forms for all standard objects, enhanced Flow Orchestration, and native OpenTelemetry support in Apex. Data Cloud 2.5 adds Zero-Copy Federated Query for BigQuery and Azure Synapse with sub-two-second streaming aggregations. MuleSoft Anypoint Platform 8.0 introduces API Experience Hub 2.0 and AI-powered Integration Advisor.",
+    "category": "Salesforce",
+    "tags": [
+      "auto-generated",
+      "news-update",
+      "weekly"
+    ],
+    "created_at": "2026-04-05T08:00:00",
+    "updated_at": "2026-04-05T08:00:00"
+  },
+  {
+    "id": "c3d4e5f6-a7b8-9012-cdef-123456789003",
+    "title": "Appian Weekly Update - April 05, 2026",
+    "content": "Appian released Platform 26.1 with an AI Process Mining Copilot that uses LLMs to analyze discovered process models and recommend optimization strategies, reducing time-to-insight by 60%. A strategic partnership with Palantir combines Appian's low-code automation with Palantir Foundry for government and defense customers. Gartner positioned Appian as a Visionary in the 2026 Magic Quadrant for Enterprise LCAP. Appian Government Cloud achieved IL5 provisional authorization from DISA for DoD workloads. AI Skill Builder 2.0 adds multi-page table extraction and handwriting recognition. Records 4.0 introduces inline editing, bulk actions, and relationship graph visualization with sub-second performance on 500K row datasets.",
+    "category": "Appian",
+    "tags": [
+      "auto-generated",
+      "news-update",
+      "weekly"
+    ],
+    "created_at": "2026-04-05T08:00:00",
+    "updated_at": "2026-04-05T08:00:00"
+  },
+  {
+    "id": "d4e5f6a7-b8c9-0123-defa-234567890104",
+    "title": "AI/New Technology Weekly Update - April 05, 2026",
+    "content": "OpenAI released GPT-5 Turbo with a 500K token context window and native multi-tool orchestration at 40% lower pricing. Google DeepMind announced Gemini Ultra 2.0 with real-time video stream processing for industrial and accessibility applications. Anthropic published Constitutional AI 2.0 with dynamic constitution adaptation and Circuit Mapping interpretability. NVIDIA began shipping Blackwell Ultra B300 GPUs delivering 2.5x inference throughput over B200. EU AI Act enforcement began for high-risk systems in healthcare, finance, and critical infrastructure. LangChain v0.4 redesigned its agent framework with Runnable Graph API. Kubernetes 1.33 graduated Sidecar Containers to stable and added native GPU sharing across pods.",
+    "category": "AI/New Technology",
+    "tags": [
+      "auto-generated",
+      "news-update",
+      "weekly"
+    ],
+    "created_at": "2026-04-05T08:00:00",
+    "updated_at": "2026-04-05T08:00:00"
+  },
+  {
+    "id": "e5f6a7b8-c9d0-1234-efab-345678901205",
+    "title": "GCP Weekly Update - April 05, 2026",
+    "content": "Google Cloud launched Vertex AI Agent Builder GA with pre-built agent templates and visual orchestration for multi-step workflows integrated with Google Workspace. BigQuery introduced Continuous SQL for real-time incremental analytics with sub-second latency at 50K events per second. Cloud Run gained NVIDIA L4 and T4 GPU support for serverless AI inference with scale-to-zero billing. A sovereign cloud region opened in Dammam, Saudi Arabia. Gemini Code Assist Enterprise 2.0 adds full repository awareness and Agent Mode for autonomous multi-file changes. GKE Autopilot 2.0 delivers intelligent GPU topology-aware workload placement. Firestore now includes native vector search using ScaNN with sub-10ms query latency.",
+    "category": "GCP",
+    "tags": [
+      "auto-generated",
+      "news-update",
+      "weekly"
+    ],
+    "created_at": "2026-04-05T08:00:00",
+    "updated_at": "2026-04-05T08:00:00"
+  },
+  {
+    "id": "f6a7b8c9-d0e1-2345-fab0-456789012306",
+    "title": "XaaS Weekly Update - April 05, 2026",
+    "content": "## Everything-as-a-Service Landscape Shifts\n\nThe XaaS market continues its rapid evolution as enterprises push beyond traditional SaaS models into composable service architectures.\n\n## Key Developments\n\n- **Gartner's Q1 2026 XaaS Report** projects the global XaaS market will reach $820B by year-end, with Platform-as-a-Service (PaaS) growing at 28% CAGR, outpacing all other segments. Composable business architectures are now adopted by 45% of Fortune 500 firms.\n- **AWS announced Marketplace Composer**, a tool that lets enterprises bundle multiple SaaS, IaaS, and DaaS products into unified subscription packages with consolidated billing and governance. Early partners include Snowflake, Datadog, and HashiCorp.\n- **Microsoft expanded Azure Arc-enabled services** to support Database-as-a-Service (DBaaS) deployments on bare-metal edge locations, enabling hybrid XaaS strategies for manufacturing and retail verticals with guaranteed sub-5ms latency SLAs.\n- **Zuora released Billing Engine 12.0** with AI-powered usage metering that auto-detects consumption anomalies and recommends pricing tier adjustments. The platform now supports 47 distinct billing models including outcome-based and token-based pricing for AI services.\n- **Infrastructure-as-Code-as-a-Service (IaCaaS)** gained traction with Pulumi launching a fully managed deployment service that abstracts Terraform, CloudFormation, and Bicep behind a unified API. Enterprises can now consume infrastructure provisioning as a metered service.\n- **Network-as-a-Service (NaaS)** saw major momentum as Cisco Meraki launched SD-WAN Flex, offering per-site, per-hour network provisioning with automatic failover across 5G, broadband, and satellite backhaul.\n\n## Interview Insights\n\nCandidates should understand the spectrum from IaaS through FaaS and BPaaS, articulate TCO analysis for build-vs-buy decisions, and discuss multi-cloud XaaS governance frameworks. Key topics include consumption-based pricing models, vendor lock-in mitigation strategies, and how composable architectures enable faster time-to-market. Familiarity with FinOps practices for managing XaaS spend across hybrid environments is increasingly expected.",
+    "category": "XaaS",
+    "tags": [
+      "auto-generated",
+      "news-update",
+      "weekly"
+    ],
+    "created_at": "2026-04-05T08:00:00",
+    "updated_at": "2026-04-05T08:00:00"
+  },
+  {
+    "id": "a7b8c9d0-e1f2-3456-ab01-567890123407",
+    "title": "AI Agents & MCP Weekly Update - April 05, 2026",
+    "content": "## Autonomous AI Agents and Model Context Protocol Advance Rapidly\n\nThe AI agent ecosystem is maturing with standardized protocols and enterprise-grade orchestration frameworks reshaping how organizations deploy autonomous systems.\n\n## Key Developments\n\n- **Anthropic released MCP Specification v1.3**, introducing streaming tool results, batched resource subscriptions, and a new Sampling capability that allows servers to request LLM completions through the client. The update also adds OAuth 2.1-based authentication for remote MCP servers, addressing a key enterprise security requirement.\n- **OpenAI launched Agent SDK 2.0** with built-in guardrails, handoff protocols, and a tracing dashboard for debugging multi-agent workflows. The SDK now supports MCP as a first-class tool provider alongside native function calling.\n- **LangGraph Cloud** exited beta with production-ready features including persistent agent state, human-in-the-loop approval gates, and time-travel debugging. Pricing is based on graph execution steps rather than token consumption.\n- **Microsoft AutoGen v0.6** introduced a Society of Agents pattern with role-based access control, enabling hierarchical multi-agent teams where supervisor agents delegate tasks with scoped permissions and audit trails.\n- **Google launched Agent Space** on Vertex AI, combining Gemini models with enterprise search and MCP-compatible tool integration. The platform provides pre-built agent templates for IT helpdesk, HR onboarding, and financial reconciliation use cases.\n- **CrewAI raised $42M Series B** to expand its multi-agent orchestration platform, announcing integrations with Salesforce, ServiceNow, and SAP for enterprise workflow automation.\n\n## Interview Insights\n\nCandidates should understand the MCP architecture (hosts, clients, servers, and the transport layer), explain agent design patterns like ReAct and Plan-and-Execute, and discuss guardrail strategies for production agent deployments. Key topics include tool-use reliability, context window management across agent chains, and evaluation frameworks for measuring agent task completion rates.",
+    "category": "AI Agents & MCP",
+    "tags": [
+      "auto-generated",
+      "news-update",
+      "weekly"
+    ],
+    "created_at": "2026-04-05T08:00:00",
+    "updated_at": "2026-04-05T08:00:00"
+  },
+  {
+    "id": "b8c9d0e1-f2a3-4567-bc12-678901234508",
+    "title": "API Gateway & Integration Weekly Update - April 05, 2026",
+    "content": "## API Management and Integration Platforms See Major Updates\n\nEnterprise integration continues its shift toward event-driven architectures and AI-augmented API management as organizations manage increasingly complex digital ecosystems.\n\n## Key Developments\n\n- **Google Cloud released Apigee X 2.0** with an AI-powered API Analytics engine that detects usage anomalies, predicts traffic spikes, and auto-generates OpenAPI specifications from observed traffic patterns. The new Advanced API Security add-on uses ML models trained on OWASP API Top 10 attack patterns for real-time threat detection.\n- **Kong Gateway 4.0** introduced a native GraphQL Federation engine and WebSocket-to-gRPC bridging, eliminating the need for sidecar proxies in service mesh deployments. The new AI Gateway plugin provides prompt injection detection and token-rate limiting for LLM API endpoints.\n- **MuleSoft launched Anypoint Code Builder 2.0** powered by Einstein AI, offering natural language-to-integration flow generation with automatic DataWeave transformation mapping. The platform now supports AsyncAPI 3.0 for event-driven architecture design.\n- **AWS API Gateway introduced VPC Lattice Integration**, enabling seamless service-to-service communication across VPCs and accounts with built-in mutual TLS, request-level authorization, and weighted traffic routing without custom code.\n- **Boomi acquired SnapLogic for $1.1B**, consolidating two major iPaaS players and announcing a unified AI-first integration platform targeting enterprises managing 200+ application connections. The combined entity serves over 20,000 customers.\n- **The AsyncAPI Initiative released v3.1** with improved channel reusability, server variable bindings for Kafka and Pulsar, and a new Codegen tool supporting 14 programming languages.\n\n## Interview Insights\n\nCandidates should articulate API gateway patterns (edge, micro, and sidecar), explain rate limiting algorithms (token bucket, sliding window), and discuss API versioning strategies. Understanding of event-driven architecture with AsyncAPI, comparison of REST vs GraphQL vs gRPC trade-offs, and familiarity with API security best practices including OAuth 2.1 and DPoP are highly valued.",
+    "category": "API Gateway & Integration",
+    "tags": [
+      "auto-generated",
+      "news-update",
+      "weekly"
+    ],
+    "created_at": "2026-04-05T08:00:00",
+    "updated_at": "2026-04-05T08:00:00"
+  },
+  {
+    "id": "c9d0e1f2-a3b4-5678-cd23-789012345609",
+    "title": "DevOps / Platform Engineering Weekly Update - April 05, 2026",
+    "content": "## Platform Engineering Matures as DevOps Evolves\n\nThe industry continues its pivot from traditional DevOps toward Internal Developer Platforms (IDPs) and self-service infrastructure, with AI copilots accelerating the transformation.\n\n## Key Developments\n\n- **Backstage 1.30** from Spotify shipped with a redesigned Software Catalog featuring relationship graph visualization, AI-powered documentation generation from code, and a new Scaffolder v2 engine supporting multi-repo project creation with automatic CI/CD pipeline provisioning.\n- **HashiCorp launched Terraform Stacks GA**, enabling teams to define and deploy coordinated multi-component infrastructure as a single unit with built-in dependency management, drift detection, and rollback capabilities. Stacks reduce deployment complexity by 70% for microservice architectures.\n- **GitHub Actions introduced Immutable Runners**, providing ephemeral, hardware-attested build environments with SLSA Level 3 provenance by default. The new Actions AI Debugger automatically diagnoses failed workflow runs and suggests fixes using Copilot.\n- **ArgoCD 3.0 reached GA** with ApplicationSets v2 supporting progressive rollouts across 1,000+ clusters, pull-request-driven preview environments, and a new Notification Engine integrating with Slack, PagerDuty, and OpsGenie natively.\n- **Humanitec raised $50M Series C** for its Platform Orchestrator, which now generates golden paths from Kubernetes deployment history using ML, reducing IDP setup time from months to days.\n- **Docker launched Build Cloud Enterprise** with distributed multi-architecture builds achieving 15x speedups and integrated vulnerability scanning using Sysdig Falco runtime rules.\n\n## Interview Insights\n\nCandidates should understand IDP concepts and the platform engineering maturity model, explain GitOps principles and multi-cluster deployment strategies, and discuss developer experience metrics (DORA, SPACE). Key topics include shift-left security in CI/CD pipelines, infrastructure drift management, and the distinction between platform engineering and traditional DevOps roles.",
+    "category": "DevOps / Platform Engineering",
+    "tags": [
+      "auto-generated",
+      "news-update",
+      "weekly"
+    ],
+    "created_at": "2026-04-05T08:00:00",
+    "updated_at": "2026-04-05T08:00:00"
+  },
+  {
+    "id": "d0e1f2a3-b4c5-6789-de34-890123456710",
+    "title": "Cybersecurity & Zero Trust Weekly Update - April 05, 2026",
+    "content": "## Zero Trust Architecture Becomes Mandatory Standard\n\nCybersecurity threats are escalating in sophistication, pushing organizations to accelerate Zero Trust adoption as regulatory frameworks tighten globally.\n\n## Key Developments\n\n- **CISA published Zero Trust Maturity Model v3.0**, adding AI-specific controls for securing LLM deployments, model supply chain integrity, and adversarial prompt detection. Federal agencies now have 18 months to achieve Advanced maturity across all five pillars (Identity, Devices, Networks, Applications, Data).\n- **CrowdStrike Falcon 26.1** introduced AI-powered Attack Path Analysis that maps lateral movement risks across hybrid environments in real-time, reducing mean-time-to-contain by 67%. The Charlotte AI assistant now autonomously investigates alerts and generates incident reports.\n- **Palo Alto Networks launched Prisma SASE 4.0** with ZTNA 3.0 featuring app-level micro-segmentation, continuous trust verification every 60 seconds, and AI-driven DLP that understands document context rather than relying on pattern matching alone.\n- **Wiz acquired Dazz for $450M** to combine cloud security posture management with automated remediation workflows, creating an end-to-end cloud-native application protection platform (CNAPP) covering code-to-runtime security.\n- **NIST released SP 800-207A** providing implementation guidance for Zero Trust Architecture in AI/ML systems, covering model access controls, training data provenance, and inference endpoint protection.\n- **Microsoft Entra ID introduced Continuous Access Evaluation v2** with real-time risk scoring using 147 behavioral signals, reducing token theft attack success rates by 94% in preview deployments.\n\n## Interview Insights\n\nCandidates should articulate the five pillars of Zero Trust, explain SASE architecture and its relationship to SSE, and discuss identity-first security models. Key topics include CNAPP vs traditional security tools, SOAR automation playbooks, threat modeling frameworks (STRIDE, MITRE ATT&CK), and compliance requirements across NIST CSF 2.0, SOC 2 Type II, and the EU NIS2 Directive.",
+    "category": "Cybersecurity & Zero Trust",
+    "tags": [
+      "auto-generated",
+      "news-update",
+      "weekly"
+    ],
+    "created_at": "2026-04-05T08:00:00",
+    "updated_at": "2026-04-05T08:00:00"
+  },
+  {
+    "id": "e1f2a3b4-c5d6-7890-ef45-901234567811",
+    "title": "GenAI & LLM Ops Weekly Update - April 05, 2026",
+    "content": "## LLMOps Tooling Matures for Production Deployments\n\nAs enterprises move generative AI from pilots to production, the operational tooling around LLM lifecycle management, evaluation, and governance is rapidly evolving.\n\n## Key Developments\n\n- **Weights & Biases launched Weave 2.0**, an LLMOps platform with end-to-end tracing for multi-step agent workflows, automated regression testing against prompt changes, and cost attribution dashboards breaking down spend by model, feature, and user segment.\n- **vLLM v0.7.0** achieved 3.2x throughput improvement for Mixture-of-Experts models through expert-parallel scheduling and speculative decoding support for Llama 3.1 and Mistral Large, making self-hosted inference cost-competitive with API providers at scale.\n- **Databricks released MLflow 3.0** with native LLM evaluation harnesses supporting 23 built-in metrics (faithfulness, relevance, toxicity, bias), a Prompt Registry for version-controlled prompt management, and Inference Tables for automated production monitoring.\n- **LlamaIndex launched LlamaDeploy GA**, a microservice framework for deploying RAG pipelines as scalable, event-driven services with automatic query routing, adaptive chunking, and knowledge graph-augmented retrieval achieving 41% better recall than dense retrieval alone.\n- **Hugging Face introduced Inference Endpoints v3** with quantized model auto-selection (GPTQ, AWQ, GGUF) based on latency requirements, automatic batching optimization, and A/B testing between model versions with statistical significance tracking.\n- **The MLOps Community published the LLMOps Maturity Model**, defining five levels from ad-hoc prompt engineering through fully automated model lifecycle management with continuous fine-tuning and human feedback integration.\n\n## Interview Insights\n\nCandidates should understand RAG architecture patterns (naive, sentence-window, auto-merging), explain LLM evaluation metrics and their trade-offs, and discuss fine-tuning strategies (LoRA, QLoRA, DPO). Key topics include prompt versioning and A/B testing, guardrail implementation patterns, cost optimization through model routing and caching, and governance frameworks for responsible AI deployment in regulated industries.",
+    "category": "GenAI & LLM Ops",
+    "tags": [
+      "auto-generated",
+      "news-update",
+      "weekly"
+    ],
+    "created_at": "2026-04-05T08:00:00",
+    "updated_at": "2026-04-05T08:00:00"
+  },
+  {
+    "id": "f2a3b4c5-d6e7-8901-fa56-012345678912",
+    "title": "ServiceNow Weekly Update - April 05, 2026",
+    "content": "## ServiceNow Expands AI-First Platform Strategy\n\nServiceNow continues aggressive expansion beyond ITSM into enterprise-wide workflow automation, with generative AI deeply embedded across the Now Platform.\n\n## Key Developments\n\n- **ServiceNow released Yokohama GA**, the latest Now Platform version featuring Now Assist for every workflow domain. The release includes AI-generated knowledge articles from resolved incidents, automated change risk assessment using historical deployment data, and conversational CMDB updates through natural language.\n- **Now Assist for Code** expanded to support full application scaffolding from natural language descriptions, generating server-side scripts, business rules, flow designer workflows, and UI Builder pages. Internal benchmarks show 55% reduction in development time for standard ITSM customizations.\n- **ITOM Predictive AIOps 3.0** introduced anomaly correlation across 500+ integration sources, automatically grouping related alerts into actionable incidents with root cause probabilities. The module now processes 10M events per minute with sub-30-second alert-to-incident time.\n- **ServiceNow acquired Agiloft for $800M** to strengthen contract lifecycle management and expand the legal service delivery portfolio. The integration brings AI-powered clause extraction and risk analysis into the Now Platform legal workflows.\n- **Creator Workflow Studio** launched as a unified development environment combining App Engine Studio, Flow Designer, and Integration Hub with AI-assisted development. The studio introduces collaborative real-time editing and component marketplace.\n- **HRSD Pro** added employee journey analytics with AI-predicted attrition risk scoring, automated benefits enrollment workflows, and integration with Workday and SAP SuccessFactors via pre-built spoke connectors.\n\n## Interview Insights\n\nCandidates should understand the Now Platform architecture (CMDB, Flow Designer, Integration Hub), explain ITIL 4 practices and their ServiceNow implementation, and discuss multi-scope application development patterns. Key topics include CMDB health management, Performance Analytics vs Reporting, ATF test automation, and Now Assist architecture including domain-specific model customization.",
+    "category": "ServiceNow",
+    "tags": [
+      "auto-generated",
+      "news-update",
+      "weekly"
+    ],
+    "created_at": "2026-04-05T08:00:00",
+    "updated_at": "2026-04-05T08:00:00"
+  },
+  {
+    "id": "a3b4c5d6-e7f8-9012-ab67-123456789013",
+    "title": "Data Engineering Weekly Update - April 05, 2026",
+    "content": "## Modern Data Stack Converges Around Lakehouse and Real-Time Architectures\n\nThe data engineering landscape is consolidating as lakehouse architectures become the default and real-time processing moves from specialized to mainstream.\n\n## Key Developments\n\n- **Databricks launched Unity Catalog 2.0** with universal asset governance spanning tables, ML models, AI agents, and dashboards across multi-cloud deployments. The update adds column-level lineage tracking, automated PII detection and masking using Presidio integration, and federated catalog support for Snowflake and BigQuery metadata.\n- **Apache Iceberg v3.0 reached GA** introducing row-level updates without copy-on-write overhead (Merge-on-Read v2), partition evolution with zero-downtime migration, and a new REST Catalog specification adopted by AWS, Google, and Snowflake as the interoperability standard.\n- **Snowflake announced Polaris Catalog GA** as an open-source Iceberg catalog service with cross-engine compatibility, enabling Spark, Trino, and Flink to query Snowflake-managed tables without data movement. Benchmark results showed 3.5x query performance improvement over external catalogs.\n- **dbt Cloud introduced dbt Mesh GA** enabling cross-project references with contractual interfaces, automatic SLA monitoring between producer and consumer teams, and AI-generated documentation and data quality tests from schema analysis.\n- **Apache Flink 2.1** added native Iceberg sink with exactly-once guarantees, SQL-based materialized views with incremental maintenance, and a unified batch-streaming API eliminating the need to maintain separate pipelines.\n- **Confluent launched Tableflow GA**, automatically materializing Kafka topics as Iceberg tables in cloud object storage, bridging the gap between streaming and analytical workloads without custom ETL code.\n\n## Interview Insights\n\nCandidates should understand lakehouse architecture and table format trade-offs (Iceberg vs Delta vs Hudi), explain data mesh organizational patterns versus data fabric technical approaches, and discuss streaming vs batch processing design decisions. Key topics include data quality frameworks (Great Expectations, Soda), medallion architecture implementation, CDC patterns with Debezium, and cost optimization strategies for cloud data platforms.",
+    "category": "Data Engineering",
+    "tags": [
+      "auto-generated",
+      "news-update",
+      "weekly"
+    ],
+    "created_at": "2026-04-05T08:00:00",
+    "updated_at": "2026-04-05T08:00:00"
+  },
+  {
+    "id": "b4c5d6e7-f8a9-0123-bc78-234567890114",
+    "title": "RPA Weekly Update - April 05, 2026",
+    "content": "## RPA Evolves Into Intelligent Automation With Agentic Capabilities\n\nThe RPA industry is undergoing a fundamental transformation as traditional screen-scraping bots give way to AI-powered autonomous agents that understand context and adapt to process variations.\n\n## Key Developments\n\n- **UiPath released Autopilot for Developers GA**, an AI assistant that generates complete automation workflows from natural language descriptions, including exception handling paths and retry logic. The tool reduced bot development time by 65% in customer previews. UiPath Platform 2026.4 also introduces Agentic Automation, where bots dynamically choose actions based on document understanding rather than rigid rule definitions.\n- **Microsoft Power Automate launched Process Mining 2.0** with AI-discovered automation opportunities ranked by ROI impact, effort estimation, and compliance risk. The platform now supports 850+ pre-built connectors and introduced Desktop Flows v3 with self-healing selectors that adapt to UI changes using computer vision.\n- **Automation Anywhere unveiled AI Agent Studio**, enabling citizen developers to build intelligent agents combining RPA actions with LLM reasoning. The studio supports multi-modal document processing with 98.5% accuracy on unstructured invoices and contracts across 40 languages.\n- **Blue Prism (SS&C) released Intelligent Automation Cloud 8.0** with a unified orchestration layer managing RPA bots, API integrations, and AI models from a single control plane. The platform now includes carbon footprint tracking for automation workloads.\n- **Forrester's Q1 2026 RPA Wave** repositioned the market as Intelligent Process Automation (IPA), with evaluation criteria now requiring native AI capabilities, process mining integration, and citizen developer tooling.\n- **SAP acquired Signavio and Kryon** capabilities to embed process intelligence directly into S/4HANA, offering automated discovery-to-automation pipelines for common ERP workflows like P2P and O2C.\n\n## Interview Insights\n\nCandidates should understand the evolution from RPA to intelligent automation, explain attended vs unattended bot architectures, and discuss Center of Excellence (CoE) governance models. Key topics include process mining methodologies, ROI calculation for automation programs, exception handling patterns, credential vault management, and the role of AI in making bots more resilient to UI changes.",
+    "category": "RPA",
+    "tags": [
+      "auto-generated",
+      "news-update",
+      "weekly"
+    ],
+    "created_at": "2026-04-05T08:00:00",
+    "updated_at": "2026-04-05T08:00:00"
+  },
+  {
+    "id": "c5d6e7f8-a9b0-1234-cd89-345678901215",
+    "title": "Edge AI & IoT Weekly Update - April 05, 2026",
+    "content": "## Edge AI Deployments Scale as On-Device Intelligence Becomes Standard\n\nThe convergence of efficient AI models and powerful edge hardware is enabling real-time intelligence at the network edge, transforming manufacturing, autonomous systems, and smart infrastructure.\n\n## Key Developments\n\n- **NVIDIA released Jetson Thor GA**, a next-generation edge AI supercomputer delivering 800 TOPS of INT8 performance in a 100W power envelope. The platform supports concurrent inference of vision, language, and sensor fusion models, targeting autonomous mobile robots and industrial inspection systems.\n- **Qualcomm launched the AI Hub 2.0** with a model zoo of 250+ optimized models for Snapdragon edge processors, including on-device Llama 3.2 1B running at 30 tokens per second. The hub now includes automated model optimization that converts PyTorch models to Snapdragon-optimized format with one command.\n- **AWS IoT Greengrass v3.0** introduced ML Component Manager for deploying and updating AI models across edge fleets with A/B testing, automatic rollback on accuracy degradation, and differential model updates reducing bandwidth by 85% compared to full model transfers.\n- **Azure IoT Operations reached GA** as a Kubernetes-based edge platform unifying OPC UA, MQTT, and Kafka data flows with built-in Akri for automatic device discovery. The platform supports edge-native vector databases for local RAG deployments in disconnected environments.\n- **Matter 2.0 specification** was released by the Connectivity Standards Alliance, adding energy management device types, ambient sensing, and camera streaming support. Adoption now exceeds 3,500 certified products across 400 manufacturers.\n- **TinyML Foundation published benchmark results** showing Arm Cortex-M85 processors running YOLO-NAS-Nano at 15 FPS for real-time object detection on microcontrollers consuming under 500mW, enabling battery-powered visual AI for agriculture and wildlife monitoring.\n\n## Interview Insights\n\nCandidates should understand edge computing architecture patterns (fog, mist, cloudlet), explain model optimization techniques (quantization, pruning, knowledge distillation), and discuss edge-cloud orchestration strategies. Key topics include MQTT vs AMQP protocol trade-offs, OPC UA for industrial IoT, digital twin architectures, time-series database selection for edge deployments, and security challenges in resource-constrained environments.",
+    "category": "Edge AI & IoT",
+    "tags": [
+      "auto-generated",
+      "news-update",
+      "weekly"
+    ],
+    "created_at": "2026-04-05T08:00:00",
+    "updated_at": "2026-04-05T08:00:00"
+  }
+]

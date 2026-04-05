@@ -40,7 +40,11 @@ def ensure_data_dir():
         else:
             _write_json(QUESTIONS_FILE, [])
     if not POSTS_FILE.exists():
-        _write_json(POSTS_FILE, [])
+        seed_posts = SEED_DIR / "default_posts.json"
+        if seed_posts.exists():
+            shutil.copy(seed_posts, POSTS_FILE)
+        else:
+            _write_json(POSTS_FILE, [])
     if not HISTORY_FILE.exists():
         _write_json(HISTORY_FILE, [])
 
