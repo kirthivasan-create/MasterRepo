@@ -1,0 +1,387 @@
+[
+  {
+    "id": "pega-001",
+    "question": "What is PEGA CDH (Customer Decision Hub) and how does it enable real-time decisioning?",
+    "category": "PEGA",
+    "difficulty": "intermediate",
+    "sample_answer": "PEGA CDH is an AI-powered decisioning engine that uses adaptive models, predictive analytics, and business rules to determine the next best action for each customer in real time across all channels."
+  },
+  {
+    "id": "pega-002",
+    "question": "Explain the difference between PEGA decisioning strategies and when-rules.",
+    "category": "PEGA",
+    "difficulty": "intermediate",
+    "sample_answer": "Decisioning strategies use a visual canvas to define decision logic with components like propositions, filters, and arbitration. When-rules are simple conditional expressions that return true/false and are used for basic branching logic within flows and activities."
+  },
+  {
+    "id": "pega-003",
+    "question": "What are Situational Layer Cake architecture patterns in PEGA?",
+    "category": "PEGA",
+    "difficulty": "advanced",
+    "sample_answer": "The Situational Layer Cake organizes rules into layers from general to specific: Organization, Division, Unit, and specializations. This allows rule resolution to find the most specific applicable rule, enabling reuse and specialization without duplication."
+  },
+  {
+    "id": "pega-004",
+    "question": "How does PEGA handle case management and what are the key components of a case type?",
+    "category": "PEGA",
+    "difficulty": "beginner",
+    "sample_answer": "PEGA case management models business processes as cases with defined lifecycles. Key components include stages, steps, assignments, service level agreements (SLAs), and automations that drive work through to resolution."
+  },
+  {
+    "id": "pega-005",
+    "question": "What is the role of adaptive models in PEGA CDH?",
+    "category": "PEGA",
+    "difficulty": "advanced",
+    "sample_answer": "Adaptive models in PEGA CDH continuously learn from customer responses to improve predictions. They use Naive Bayes algorithms that self-adjust based on outcomes, enabling the system to optimize next-best-action recommendations over time without manual retraining."
+  },
+  {
+    "id": "sf-001",
+    "question": "What are the governor limits in Salesforce and why do they exist?",
+    "category": "Salesforce",
+    "difficulty": "intermediate",
+    "sample_answer": "Governor limits are runtime restrictions enforced by Salesforce to ensure no single tenant monopolizes shared resources in the multi-tenant architecture. Examples include 100 SOQL queries per transaction and 150 DML statements per transaction."
+  },
+  {
+    "id": "sf-002",
+    "question": "Explain the difference between Apex triggers and Process Builder in Salesforce.",
+    "category": "Salesforce",
+    "difficulty": "beginner",
+    "sample_answer": "Apex triggers are code-based handlers that execute before or after DML operations, offering full programmatic control. Process Builder is a declarative automation tool for point-and-click configuration of business processes, suitable for simpler logic without code."
+  },
+  {
+    "id": "sf-003",
+    "question": "How does Salesforce Lightning Web Components (LWC) differ from Aura components?",
+    "category": "Salesforce",
+    "difficulty": "intermediate",
+    "sample_answer": "LWC uses modern web standards (Web Components, ES modules) and is more performant. Aura is Salesforce's older proprietary framework. LWC has a simpler programming model, better testing support, and can coexist with Aura components."
+  },
+  {
+    "id": "sf-004",
+    "question": "What is Salesforce Flow and when would you use it over Apex?",
+    "category": "Salesforce",
+    "difficulty": "intermediate",
+    "sample_answer": "Salesforce Flow is a declarative automation tool for building complex business logic without code. Use Flow for most automation needs as it is maintainable by admins. Use Apex when you need complex algorithms, external API callouts, or operations beyond Flow capabilities."
+  },
+  {
+    "id": "sf-005",
+    "question": "Explain the Salesforce data model: objects, fields, and relationships.",
+    "category": "Salesforce",
+    "difficulty": "beginner",
+    "sample_answer": "Salesforce data model consists of standard and custom objects (tables), fields (columns), and relationships. Lookup relationships are loose associations while master-detail relationships create tight parent-child bonds with cascading deletes and roll-up summaries."
+  },
+  {
+    "id": "app-001",
+    "question": "What is Appian and how does it differ from traditional BPM platforms?",
+    "category": "Appian",
+    "difficulty": "beginner",
+    "sample_answer": "Appian is a low-code automation platform combining BPM, case management, RPA, and AI in a unified environment. Unlike traditional BPM, Appian emphasizes rapid application development with drag-and-drop interfaces while still supporting complex enterprise workflows."
+  },
+  {
+    "id": "app-002",
+    "question": "Explain Appian's record type feature and its role in data management.",
+    "category": "Appian",
+    "difficulty": "intermediate",
+    "sample_answer": "Record types are Appian's primary data modeling construct that unify data from multiple sources into a single virtual layer. They provide built-in CRUD operations, relationships between records, record lists, and record views without writing custom queries."
+  },
+  {
+    "id": "app-003",
+    "question": "How does Appian handle process modeling and what are the key BPMN elements it supports?",
+    "category": "Appian",
+    "difficulty": "intermediate",
+    "sample_answer": "Appian uses BPMN 2.0 for process modeling with support for start/end events, user tasks, script tasks, gateways (exclusive, parallel, inclusive), sub-processes, and timer events. Process models define the flow of work and can include decision logic and integrations."
+  },
+  {
+    "id": "app-004",
+    "question": "What is Appian's SAIL (Self-Assembling Interface Layer) framework?",
+    "category": "Appian",
+    "difficulty": "advanced",
+    "sample_answer": "SAIL is Appian's reactive UI framework that automatically renders interfaces across web and mobile from a single definition. It uses expression-based components that automatically handle state management, validation, and responsive layout without manual coding."
+  },
+  {
+    "id": "app-005",
+    "question": "How does Appian integrate with external systems and APIs?",
+    "category": "Appian",
+    "difficulty": "intermediate",
+    "sample_answer": "Appian provides connected systems and integration objects for REST/SOAP APIs, databases via JDBC, and pre-built connectors for common services. It also supports RPA bots for legacy system integration and has a plugin architecture for custom integrations."
+  },
+  {
+    "id": "ai-001",
+    "question": "What is Retrieval-Augmented Generation (RAG) and why is it important for enterprise AI?",
+    "category": "AI/New Technology",
+    "difficulty": "intermediate",
+    "sample_answer": "RAG combines LLMs with external knowledge retrieval to generate accurate, up-to-date responses grounded in specific data sources. It is crucial for enterprises because it reduces hallucinations, leverages proprietary data, and avoids costly model fine-tuning."
+  },
+  {
+    "id": "ai-002",
+    "question": "Explain the difference between fine-tuning and prompt engineering for LLMs.",
+    "category": "AI/New Technology",
+    "difficulty": "beginner",
+    "sample_answer": "Prompt engineering crafts input instructions to guide model behavior without changing weights, offering quick iteration and no training cost. Fine-tuning adjusts model weights on domain-specific data for deeper specialization but requires training data, compute resources, and ongoing maintenance."
+  },
+  {
+    "id": "ai-003",
+    "question": "What are AI agents and how do they differ from simple chatbots?",
+    "category": "AI/New Technology",
+    "difficulty": "intermediate",
+    "sample_answer": "AI agents are autonomous systems that can plan, use tools, and take multi-step actions to accomplish goals. Unlike chatbots that respond to single queries, agents maintain state, make decisions, invoke external APIs, and iterate until a task is completed."
+  },
+  {
+    "id": "ai-004",
+    "question": "How does vector embedding work for semantic search in AI applications?",
+    "category": "AI/New Technology",
+    "difficulty": "advanced",
+    "sample_answer": "Vector embeddings convert text into dense numerical representations that capture semantic meaning. Similar concepts map to nearby points in the vector space. Semantic search uses these embeddings with similarity metrics like cosine similarity to find relevant content based on meaning rather than keywords."
+  },
+  {
+    "id": "ai-005",
+    "question": "What are the key considerations when deploying LLMs in production enterprise environments?",
+    "category": "AI/New Technology",
+    "difficulty": "advanced",
+    "sample_answer": "Key considerations include latency and cost optimization, guardrails for safety and compliance, data privacy and security, monitoring for hallucinations and drift, token management, caching strategies, fallback mechanisms, and establishing evaluation metrics for output quality."
+  },
+  {
+    "id": "gcp-001",
+    "question": "What are the core services in Google Cloud Platform and how do they compare to AWS equivalents?",
+    "category": "GCP",
+    "difficulty": "beginner",
+    "sample_answer": "GCP core services include Compute Engine (EC2), Cloud Storage (S3), BigQuery (Redshift), Cloud Functions (Lambda), and GKE (EKS). GCP differentiates with BigQuery's serverless analytics, Kubernetes-native GKE, and strong data/ML tooling."
+  },
+  {
+    "id": "gcp-002",
+    "question": "Explain Google Kubernetes Engine (GKE) and its advantages over self-managed Kubernetes.",
+    "category": "GCP",
+    "difficulty": "intermediate",
+    "sample_answer": "GKE is a managed Kubernetes service that handles cluster provisioning, upgrades, scaling, and monitoring. Advantages include auto-repair, auto-upgrade, integrated logging via Cloud Operations, and Autopilot mode which manages node infrastructure entirely."
+  },
+  {
+    "id": "gcp-003",
+    "question": "What is BigQuery and how does its architecture enable serverless analytics?",
+    "category": "GCP",
+    "difficulty": "intermediate",
+    "sample_answer": "BigQuery is a serverless, highly-scalable data warehouse that separates storage and compute. It uses Dremel for query execution and Colossus for distributed storage, enabling petabyte-scale SQL queries without infrastructure management. It supports streaming inserts, ML models, and federated queries."
+  },
+  {
+    "id": "gcp-004",
+    "question": "How does Google Cloud IAM work and what are the best practices for access control?",
+    "category": "GCP",
+    "difficulty": "intermediate",
+    "sample_answer": "GCP IAM uses a policy model with members, roles, and resources. Best practices include using least-privilege roles, preferring predefined roles over primitive roles, using service accounts for applications, enabling audit logging, and organizing resources with folders and projects."
+  },
+  {
+    "id": "gcp-005",
+    "question": "What is Vertex AI and how does it support the ML lifecycle on GCP?",
+    "category": "GCP",
+    "difficulty": "advanced",
+    "sample_answer": "Vertex AI is GCP's unified ML platform covering data preparation, training, tuning, deployment, and monitoring. It supports AutoML for no-code models, custom training with any framework, model registry, feature store, pipelines for MLOps, and integration with Gemini foundation models."
+  },
+  {
+    "id": "xaas-001",
+    "question": "What is XaaS (Everything as a Service) and how is it transforming enterprise IT?",
+    "category": "XaaS",
+    "difficulty": "beginner",
+    "sample_answer": "XaaS is the delivery of any IT function as a service over the internet, including SaaS, PaaS, IaaS, AIaaS, and DaaS. It transforms enterprises by shifting from CapEx to OpEx, enabling elastic scaling, reducing infrastructure management burden, and accelerating time-to-market."
+  },
+  {
+    "id": "xaas-002",
+    "question": "Compare SaaS, PaaS, and IaaS with examples and typical use cases.",
+    "category": "XaaS",
+    "difficulty": "intermediate",
+    "sample_answer": "IaaS (AWS EC2, Azure VMs) provides raw compute/storage for full infrastructure control. PaaS (Heroku, Google App Engine) provides managed runtime for developers to deploy code without managing servers. SaaS (Salesforce, Office 365) delivers complete applications to end users. Each layer abstracts more infrastructure complexity."
+  },
+  {
+    "id": "xaas-003",
+    "question": "What is AIaaS and how are companies leveraging it?",
+    "category": "XaaS",
+    "difficulty": "intermediate",
+    "sample_answer": "AIaaS (AI as a Service) provides ready-to-use AI capabilities via APIs and cloud services. Companies use it for NLP (Claude, GPT APIs), computer vision, speech recognition, and recommendation engines without building ML infrastructure. Key providers include Anthropic, OpenAI, Google Vertex AI, and AWS Bedrock."
+  },
+  {
+    "id": "agents-001",
+    "question": "What is MCP (Model Context Protocol) and why is it significant for AI agents?",
+    "category": "AI Agents & MCP",
+    "difficulty": "intermediate",
+    "sample_answer": "MCP is an open protocol by Anthropic that standardizes how AI models connect to external tools, data sources, and services. It enables AI agents to use tools like databases, APIs, and file systems through a unified interface, making agents more capable and interoperable across different providers."
+  },
+  {
+    "id": "agents-002",
+    "question": "How do AI agents differ from traditional chatbots and what are the key architectural components?",
+    "category": "AI Agents & MCP",
+    "difficulty": "intermediate",
+    "sample_answer": "AI agents can plan, reason, use tools, and take multi-step autonomous actions. Key components include an LLM backbone, a planning module, tool-use capabilities, memory (short and long-term), and an orchestration layer. Unlike chatbots, agents maintain context across steps and can execute complex workflows."
+  },
+  {
+    "id": "agents-003",
+    "question": "Explain the concept of tool-use in AI agents and how function calling works.",
+    "category": "AI Agents & MCP",
+    "difficulty": "advanced",
+    "sample_answer": "Tool-use enables LLMs to invoke external functions during generation. The model receives tool schemas, decides which tool to call with what parameters, the runtime executes the function, and results are fed back to the model. This creates a reasoning-action loop that enables agents to interact with real systems."
+  },
+  {
+    "id": "api-001",
+    "question": "What is an API Gateway and why is it essential in microservices architecture?",
+    "category": "API Gateway & Integration",
+    "difficulty": "beginner",
+    "sample_answer": "An API Gateway is a single entry point for all client requests to backend microservices. It handles routing, authentication, rate limiting, load balancing, and protocol translation. Essential products include Apigee, Kong, AWS API Gateway, and MuleSoft. It simplifies client communication and enforces security policies."
+  },
+  {
+    "id": "api-002",
+    "question": "Compare Apigee, MuleSoft, and Kong as API management platforms.",
+    "category": "API Gateway & Integration",
+    "difficulty": "intermediate",
+    "sample_answer": "Apigee (Google) excels at API analytics, monetization, and developer portals. MuleSoft (Salesforce) focuses on full integration with Anypoint Platform for API design, management, and iPaaS. Kong is an open-source, lightweight gateway optimized for performance and Kubernetes-native deployments. Choice depends on ecosystem and integration needs."
+  },
+  {
+    "id": "api-003",
+    "question": "What are the key API design patterns: REST, GraphQL, gRPC, and event-driven?",
+    "category": "API Gateway & Integration",
+    "difficulty": "intermediate",
+    "sample_answer": "REST uses HTTP verbs and resources for CRUD operations. GraphQL lets clients request exactly the data they need via a query language. gRPC uses Protocol Buffers for high-performance binary communication between services. Event-driven APIs (webhooks, Kafka, AMQP) enable asynchronous real-time communication."
+  },
+  {
+    "id": "devops-001",
+    "question": "What is Platform Engineering and how does it differ from traditional DevOps?",
+    "category": "DevOps / Platform Engineering",
+    "difficulty": "intermediate",
+    "sample_answer": "Platform Engineering builds internal developer platforms (IDPs) that provide self-service capabilities to development teams. Unlike DevOps which embeds ops in dev teams, platform engineering creates a dedicated team that builds golden paths, standardized toolchains, and abstractions that reduce cognitive load for developers."
+  },
+  {
+    "id": "devops-002",
+    "question": "Explain GitOps and how it works with Kubernetes deployments.",
+    "category": "DevOps / Platform Engineering",
+    "difficulty": "intermediate",
+    "sample_answer": "GitOps uses Git as the single source of truth for infrastructure and application state. Tools like ArgoCD or Flux continuously reconcile the desired state in Git with the actual cluster state. Changes are made via pull requests, providing audit trails, rollback capability, and declarative infrastructure management."
+  },
+  {
+    "id": "devops-003",
+    "question": "What is Infrastructure as Code (IaC) and compare Terraform, Pulumi, and CloudFormation.",
+    "category": "DevOps / Platform Engineering",
+    "difficulty": "intermediate",
+    "sample_answer": "IaC manages infrastructure through machine-readable configuration files instead of manual processes. Terraform (HashiCorp) is cloud-agnostic using HCL. Pulumi uses general-purpose languages (Python, TypeScript). CloudFormation is AWS-native using YAML/JSON. Terraform leads in multi-cloud; Pulumi appeals to developers preferring code over DSLs."
+  },
+  {
+    "id": "cyber-001",
+    "question": "What is Zero Trust Architecture and its core principles?",
+    "category": "Cybersecurity & Zero Trust",
+    "difficulty": "intermediate",
+    "sample_answer": "Zero Trust operates on 'never trust, always verify.' Core principles: verify every user and device explicitly, use least-privilege access, assume breach and segment networks, continuously validate trust through real-time signals. It replaces perimeter-based security with identity-centric, context-aware access decisions."
+  },
+  {
+    "id": "cyber-002",
+    "question": "What is SASE (Secure Access Service Edge) and how does it unify networking and security?",
+    "category": "Cybersecurity & Zero Trust",
+    "difficulty": "advanced",
+    "sample_answer": "SASE combines SD-WAN with cloud-native security functions (SWG, CASB, ZTNA, FWaaS) into a single cloud-delivered service. It provides secure access from any location to any application, reducing complexity of managing separate networking and security stacks. Key vendors include Zscaler, Palo Alto Prisma, and Cloudflare."
+  },
+  {
+    "id": "cyber-003",
+    "question": "How is AI being used in cybersecurity for threat detection and response?",
+    "category": "Cybersecurity & Zero Trust",
+    "difficulty": "intermediate",
+    "sample_answer": "AI enhances cybersecurity through anomaly detection in network traffic, automated incident response, phishing detection using NLP, behavioral analytics for insider threats, and vulnerability prioritization. SOAR platforms use AI to automate playbooks, while LLMs assist in threat intelligence analysis and security copilots."
+  },
+  {
+    "id": "genai-001",
+    "question": "What is RAG (Retrieval-Augmented Generation) and how do you build a production RAG pipeline?",
+    "category": "GenAI & LLM Ops",
+    "difficulty": "intermediate",
+    "sample_answer": "RAG combines document retrieval with LLM generation. Production pipeline: ingest documents, chunk text, generate embeddings, store in vector DB (Pinecone, Weaviate), at query time retrieve top-k relevant chunks, inject into prompt context, generate response. Key challenges include chunking strategy, embedding quality, and retrieval accuracy."
+  },
+  {
+    "id": "genai-002",
+    "question": "What is LLMOps and what are the key components of an LLM observability stack?",
+    "category": "GenAI & LLM Ops",
+    "difficulty": "advanced",
+    "sample_answer": "LLMOps covers the lifecycle of deploying and managing LLMs in production. Key components: prompt versioning and management, token usage monitoring, latency tracking, output quality evaluation, hallucination detection, A/B testing, guardrails, and cost optimization. Tools include LangSmith, Weights & Biases, Helicone, and Braintrust."
+  },
+  {
+    "id": "genai-003",
+    "question": "Compare prompt engineering, fine-tuning, and RAG as strategies for customizing LLM behavior.",
+    "category": "GenAI & LLM Ops",
+    "difficulty": "intermediate",
+    "sample_answer": "Prompt engineering is fastest and cheapest — craft instructions to guide behavior. RAG adds external knowledge at query time without changing the model. Fine-tuning adjusts model weights on domain data for deep specialization. Best practice: start with prompt engineering, add RAG for knowledge, fine-tune only when the first two are insufficient."
+  },
+  {
+    "id": "snow-001",
+    "question": "What is ServiceNow and how does it go beyond traditional ITSM?",
+    "category": "ServiceNow",
+    "difficulty": "beginner",
+    "sample_answer": "ServiceNow is a cloud platform that started in IT Service Management but now covers IT operations, HR service delivery, customer service, security operations, and app development. Its Now Platform provides a single system of record with workflow automation, AI-powered virtual agents, and low-code App Engine."
+  },
+  {
+    "id": "snow-002",
+    "question": "Explain ServiceNow's Now Assist and how AI is integrated into the platform.",
+    "category": "ServiceNow",
+    "difficulty": "intermediate",
+    "sample_answer": "Now Assist is ServiceNow's generative AI capability built on domain-specific LLMs. It provides AI-powered case summarization, knowledge article generation, code generation for flows, conversational search, and intelligent incident resolution. It integrates across ITSM, HRSD, and CSM modules with enterprise guardrails."
+  },
+  {
+    "id": "snow-003",
+    "question": "What is ServiceNow Flow Designer and how does it compare to traditional workflow automation?",
+    "category": "ServiceNow",
+    "difficulty": "intermediate",
+    "sample_answer": "Flow Designer is ServiceNow's no-code/low-code tool for building automated workflows. Unlike traditional workflow, it uses a modern visual interface with reusable actions, spokes for integration, and subflows for modularity. It supports triggers, conditions, parallel flows, and integrates with IntegrationHub for external system connectivity."
+  },
+  {
+    "id": "de-001",
+    "question": "Compare Databricks, Snowflake, and BigQuery as modern data platforms.",
+    "category": "Data Engineering",
+    "difficulty": "intermediate",
+    "sample_answer": "Databricks is a lakehouse platform built on Spark, excelling at unified batch/streaming and ML workloads. Snowflake is a cloud data warehouse with strong SQL analytics, data sharing, and multi-cloud support. BigQuery is Google's serverless warehouse with built-in ML. Databricks leads in data engineering; Snowflake in data warehousing; BigQuery in serverless simplicity."
+  },
+  {
+    "id": "de-002",
+    "question": "What is the Modern Data Stack and what are its key components?",
+    "category": "Data Engineering",
+    "difficulty": "intermediate",
+    "sample_answer": "The Modern Data Stack is a cloud-native, modular approach to data infrastructure. Key components: ingestion (Fivetran, Airbyte), storage (Snowflake, Databricks), transformation (dbt), orchestration (Airflow, Dagster), analytics (Looker, Metabase), and reverse ETL (Census, Hightouch). It emphasizes ELT over ETL, SQL-first transformations, and managed services."
+  },
+  {
+    "id": "de-003",
+    "question": "What is dbt and how has it changed the data transformation workflow?",
+    "category": "Data Engineering",
+    "difficulty": "intermediate",
+    "sample_answer": "dbt (data build tool) enables analytics engineers to transform data in the warehouse using SQL SELECT statements. It brings software engineering practices to data: version control, testing, documentation, and modular code. dbt handles DDL/DML automatically, manages dependencies via DAGs, and supports incremental models for efficiency."
+  },
+  {
+    "id": "rpa-001",
+    "question": "What is RPA and how does it differ from traditional automation and AI-powered automation?",
+    "category": "RPA",
+    "difficulty": "beginner",
+    "sample_answer": "RPA (Robotic Process Automation) uses software bots to mimic human interactions with applications — clicking, typing, copying data. Unlike traditional API-based automation, RPA works at the UI level. AI-powered automation (intelligent automation) adds ML, NLP, and computer vision to handle unstructured data and make decisions, going beyond rule-based RPA."
+  },
+  {
+    "id": "rpa-002",
+    "question": "Compare UiPath, Automation Anywhere, and Power Automate as RPA platforms.",
+    "category": "RPA",
+    "difficulty": "intermediate",
+    "sample_answer": "UiPath leads with the most comprehensive platform: Studio for development, Orchestrator for management, and AI Center for ML integration. Automation Anywhere focuses on cloud-native architecture with AARI for human-bot collaboration. Power Automate (Microsoft) integrates deeply with Office 365 and Azure, making it ideal for Microsoft-centric organizations."
+  },
+  {
+    "id": "rpa-003",
+    "question": "What is Intelligent Document Processing (IDP) and how does it extend RPA capabilities?",
+    "category": "RPA",
+    "difficulty": "intermediate",
+    "sample_answer": "IDP uses AI (OCR, NLP, ML) to extract, classify, and validate data from unstructured documents like invoices, contracts, and forms. It extends RPA by handling documents that rule-based bots cannot process. Key technologies include computer vision for layout analysis, NLP for entity extraction, and active learning for continuous improvement."
+  },
+  {
+    "id": "edge-001",
+    "question": "What is Edge AI and why is it becoming critical for enterprise applications?",
+    "category": "Edge AI & IoT",
+    "difficulty": "intermediate",
+    "sample_answer": "Edge AI runs machine learning models directly on edge devices (sensors, cameras, gateways) rather than in the cloud. It is critical for low-latency applications (autonomous vehicles, real-time quality inspection), data privacy (healthcare, manufacturing), bandwidth savings, and offline operation. Key frameworks include TensorFlow Lite, ONNX Runtime, and NVIDIA Jetson."
+  },
+  {
+    "id": "edge-002",
+    "question": "How does IoT architecture work and what are the key layers in an enterprise IoT solution?",
+    "category": "Edge AI & IoT",
+    "difficulty": "intermediate",
+    "sample_answer": "Enterprise IoT has four layers: Device layer (sensors, actuators, edge devices), Connectivity layer (MQTT, LoRaWAN, 5G), Platform layer (AWS IoT Core, Azure IoT Hub — handles device management, data ingestion, rules engine), and Application layer (dashboards, analytics, digital twins). Security spans all layers with device identity, encryption, and access control."
+  },
+  {
+    "id": "edge-003",
+    "question": "What are Digital Twins and how are they used in industrial IoT?",
+    "category": "Edge AI & IoT",
+    "difficulty": "advanced",
+    "sample_answer": "Digital Twins are virtual replicas of physical assets, processes, or systems that update in real-time from IoT sensor data. In industrial IoT, they enable predictive maintenance, process optimization, and simulation of what-if scenarios. Platforms include Azure Digital Twins, AWS IoT TwinMaker, and GE Predix. They combine IoT data, 3D models, and ML for operational intelligence."
+  }
+]

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: interview-companion
+  labels:
+    app: interview-companion
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: interview-companion
+  template:
+    metadata:
+      labels:
+        app: interview-companion
+    spec:
+      containers:
+        - name: interview-companion
+          image: interview-companion:latest
+          ports:
+            - containerPort: 8501
+          imagePullPolicy: Never
