@@ -1,16 +1,14 @@
 import streamlit as st
+from datetime import datetime
 from utils.data_manager import (
     ensure_data_dir, load_posts, add_post, update_post, delete_post,
-    get_posts_by_category, load_questions, get_questions_by_category,
-    load_history, save_history_entry, CATEGORIES,
+    get_posts_by_category, CATEGORIES,
 )
-from utils.ai_engine import (
-    get_client, generate_questions, evaluate_answer, chat_qa, generate_from_post,
-)
+from utils.ai_engine import get_client, chat_qa
 
 st.set_page_config(
-    page_title="AI Companion Journalist Agent",
-    page_icon="🎯",
+    page_title="AI Tech Journal",
+    page_icon="📡",
     layout="wide",
 )
 
@@ -19,7 +17,6 @@ ensure_data_dir()
 # --- Authentication ---
 VALID_USERNAME = "Kirthivasan"
 VALID_PASSWORD = "Pradtiksha"
-PROTECTED_PAGES = ["Content Manager", "Practice Mode"]
 
 # --- Session State Defaults ---
 defaults = {
@@ -28,26 +25,62 @@ defaults = {
     "chat_category": "PEGA",
     "logged_in": False,
     "username": "",
-    "practice": {
-        "active": False,
-        "questions": [],
-        "current_index": 0,
-        "answers": [],
-        "scores": [],
-        "completed": False,
-    },
 }
 for key, value in defaults.items():
     if key not in st.session_state:
         st.session_state[key] = value
 
+# --- Custom CSS ---
+st.markdown("""
+<style>
+    .main-header {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(90deg, #FF4B4B, #FF8C00, #4B8BFF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 0;
+    }
+    .sub-header {
+        font-size: 1.1rem;
+        color: #666;
+        margin-top: -10px;
+        margin-bottom: 20px;
+    }
+    .article-card {
+        border-left: 4px solid #FF4B4B;
+        padding-left: 15px;
+        margin-bottom: 10px;
+    }
+    .category-badge {
+        background-color: #FF4B4B;
+        color: white;
+        padding: 2px 10px;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+    .date-badge {
+        color: #888;
+        font-size: 0.85rem;
+    }
+    .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #FF4B4B;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # --- Sidebar ---
-st.sidebar.title("AI Companion Journalist Agent")
+st.sidebar.markdown("## 📡 AI Tech Journal")
+st.sidebar.caption("Your one-stop destination for what's happening in tech")
 st.sidebar.markdown("---")
 
 page = st.sidebar.radio(
     "Navigate",
-    ["Home", "Content Manager", "Browse & Learn", "Practice Mode", "AI Chat"],
+    ["Home", "Tech Digest", "Content Manager", "AI Chat"],
+    captions=["Dashboard & Overview", "Browse all articles by topic", "Manage posts (Admin)", "Ask AI about any topic"],
 )
 
 st.sidebar.markdown("---")
@@ -67,7 +100,7 @@ else:
         else:
             st.session_state.login_error = True
 
-    st.sidebar.subheader("Login")
+    st.sidebar.subheader("Admin Login")
     st.sidebar.text_input("Username", key="login_user")
     st.sidebar.text_input("Password", type="password", key="login_pass")
     st.sidebar.button("Login", type="primary", on_click=do_login)
@@ -76,83 +109,124 @@ else:
         st.session_state.login_error = False
 
 st.sidebar.markdown("---")
-st.sidebar.subheader("Settings")
+st.sidebar.subheader("AI Settings")
 api_key = st.sidebar.text_input("Anthropic API Key", type="password", value=st.session_state.api_key)
 if api_key:
     st.session_state.api_key = api_key
 
 st.sidebar.markdown("---")
-st.sidebar.caption("AI Companion Journalist Agent | Built with Streamlit + Claude AI")
+st.sidebar.caption("Powered by Claude AI | Updated twice weekly")
 
 
 # ============================================================
 # PAGE: HOME
 # ============================================================
 if page == "Home":
-    st.title("Welcome to AI Companion Journalist Agent")
-    st.markdown("Your personal AI-powered interview preparation and tech news companion covering **15 hot IT topics**.")
+    st.markdown('<p class="main-header">AI Tech Journal</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sub-header">Your one-stop destination to understand what\'s happening across 15 hot IT areas — updated twice weekly</p>', unsafe_allow_html=True)
 
     posts = load_posts()
-    history = load_history()
 
-    # Display categories in rows of 5
+    # Category overview in rows of 5
     for row_start in range(0, len(CATEGORIES), 5):
         row_cats = CATEGORIES[row_start:row_start + 5]
         cols = st.columns(5)
         for col, cat in zip(cols, row_cats):
             count = len([p for p in posts if p["category"] == cat])
-            col.metric(cat, f"{count} posts")
+            col.metric(cat, f"{count} articles")
 
     st.markdown("---")
 
-    col_a, col_b = st.columns(2)
-    with col_a:
-        st.subheader("Quick Stats")
-        st.metric("Total Posts", len(posts))
-        st.metric("Practice Sessions", len(history))
-        if history:
-            scores = [h.get("ai_score", 0) for h in history if "ai_score" in h]
-            if scores:
-                st.metric("Average Score", f"{sum(scores) / len(scores):.1f} / 10")
+    # Latest Articles
+    st.subheader("Latest Articles")
+    if posts:
+        # Sort by date, newest first
+        sorted_posts = sorted(posts, key=lambda p: p.get("created_at", ""), reverse=True)
+        for post in sorted_posts[:10]:
+            date_str = post.get("created_at", "")[:10]
+            category = post.get("category", "")
+            tags = post.get("tags", [])
 
-    with col_b:
-        st.subheader("Recent Practice")
-        if history:
-            for entry in reversed(history[-5:]):
-                score = entry.get("ai_score", "N/A")
-                cat = entry.get("category", "")
-                ts = entry.get("timestamp", "")[:10]
-                q = entry.get("question", "")[:80]
-                st.markdown(f"**{ts}** | {cat} | Score: {score}/10")
-                st.caption(q)
-        else:
-            st.info("No practice sessions yet. Head to Practice Mode to get started!")
+            col_main, col_date = st.columns([5, 1])
+            with col_main:
+                with st.expander(f"📰  **{post['title']}**  —  {category}"):
+                    st.markdown(post["content"])
+                    if tags:
+                        tag_str = " ".join([f"`{t}`" for t in tags])
+                        st.caption(f"Tags: {tag_str}")
+            with col_date:
+                st.caption(f"📅 {date_str}")
+    else:
+        st.info("No articles yet. Content will appear here once the journal is populated.")
+
+    # Sidebar-style summary
+    st.markdown("---")
+    col1, col2, col3 = st.columns(3)
+    col1.metric("Total Articles", len(posts))
+    col2.metric("Categories Covered", len(CATEGORIES))
+    col3.metric("Update Frequency", "2x / week")
 
 
 # ============================================================
-# PAGE: CONTENT MANAGER
+# PAGE: TECH DIGEST (replaces Browse & Learn)
+# ============================================================
+elif page == "Tech Digest":
+    st.markdown('<p class="main-header">Tech Digest</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sub-header">Deep dive into each technology area — browse the latest insights, trends, and updates</p>', unsafe_allow_html=True)
+
+    tabs = st.tabs(CATEGORIES)
+    for tab, category in zip(tabs, CATEGORIES):
+        with tab:
+            cat_posts = get_posts_by_category(category)
+
+            if cat_posts:
+                # Sort newest first
+                cat_posts_sorted = sorted(cat_posts, key=lambda p: p.get("created_at", ""), reverse=True)
+
+                st.markdown(f"### {category} — {len(cat_posts_sorted)} article(s)")
+                st.markdown("---")
+
+                for post in cat_posts_sorted:
+                    date_str = post.get("created_at", "")[:10]
+                    tags = post.get("tags", [])
+
+                    st.markdown(f"#### 📰 {post['title']}")
+                    st.caption(f"Published: {date_str}")
+                    st.markdown(post["content"])
+
+                    if tags:
+                        tag_str = " ".join([f"`{t}`" for t in tags])
+                        st.caption(f"Tags: {tag_str}")
+                    st.markdown("---")
+            else:
+                st.info(f"No articles for **{category}** yet. New content is published twice weekly.")
+
+
+# ============================================================
+# PAGE: CONTENT MANAGER (Admin only)
 # ============================================================
 elif page == "Content Manager":
     if not st.session_state.logged_in:
         st.title("Content Manager")
-        st.warning("Please log in to access the Content Manager. Use the login form in the sidebar.")
+        st.warning("This is an admin-only area. Please log in using the sidebar.")
         st.stop()
-    st.title("Content Manager")
-    st.markdown("Add, edit, and manage your interview preparation content.")
 
-    tab_add, tab_view, tab_import = st.tabs(["Add Post", "View/Edit Posts", "Import"])
+    st.markdown('<p class="main-header">Content Manager</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sub-header">Add, edit, and manage journal articles (Admin only)</p>', unsafe_allow_html=True)
+
+    tab_add, tab_view, tab_import = st.tabs(["Add Article", "View/Edit Articles", "Import"])
 
     with tab_add:
         with st.form("add_post_form"):
-            title = st.text_input("Title")
+            title = st.text_input("Article Title")
             category = st.selectbox("Category", CATEGORIES)
-            content = st.text_area("Content", height=300)
+            content = st.text_area("Article Content (Markdown supported)", height=300)
             tags_input = st.text_input("Tags (comma-separated)")
-            submitted = st.form_submit_button("Add Post")
+            submitted = st.form_submit_button("Publish Article", type="primary")
             if submitted and title and content:
                 tags = [t.strip() for t in tags_input.split(",") if t.strip()]
                 add_post(title, content, category, tags)
-                st.success(f"Post '{title}' added successfully!")
+                st.success(f"Article '{title}' published successfully!")
                 st.rerun()
 
     with tab_view:
@@ -162,24 +236,22 @@ elif page == "Content Manager":
             posts = [p for p in posts if p["category"] == filter_cat]
 
         if not posts:
-            st.info("No posts found. Add some content to get started!")
+            st.info("No articles found.")
         else:
-            for post in posts:
-                with st.expander(f"{post['category']} | {post['title']}"):
+            for post in sorted(posts, key=lambda p: p.get("created_at", ""), reverse=True):
+                with st.expander(f"{post['category']} | {post['title']} ({post.get('created_at', '')[:10]})"):
                     st.markdown(post["content"][:500] + ("..." if len(post["content"]) > 500 else ""))
                     if post.get("tags"):
                         st.caption(f"Tags: {', '.join(post['tags'])}")
-                    st.caption(f"Created: {post['created_at'][:10]}")
 
                     col_edit, col_del = st.columns(2)
                     with col_edit:
                         if st.button("Edit", key=f"edit_{post['id']}"):
                             st.session_state[f"editing_{post['id']}"] = True
-
                     with col_del:
                         if st.button("Delete", key=f"del_{post['id']}", type="secondary"):
                             delete_post(post["id"])
-                            st.success("Post deleted.")
+                            st.success("Article deleted.")
                             st.rerun()
 
                     if st.session_state.get(f"editing_{post['id']}"):
@@ -192,7 +264,7 @@ elif page == "Content Manager":
                                 tags = [t.strip() for t in new_tags.split(",") if t.strip()]
                                 update_post(post["id"], title=new_title, category=new_cat, content=new_content, tags=tags)
                                 st.session_state[f"editing_{post['id']}"] = False
-                                st.success("Post updated!")
+                                st.success("Article updated!")
                                 st.rerun()
 
     with tab_import:
@@ -202,218 +274,28 @@ elif page == "Content Manager":
         if uploaded:
             file_content = uploaded.read().decode("utf-8")
             st.text_area("Preview", value=file_content[:1000], height=200, disabled=True)
-            if st.button("Import as Post"):
+            if st.button("Import as Article"):
                 add_post(
                     title=uploaded.name.rsplit(".", 1)[0],
                     content=file_content,
                     category=import_cat,
                     tags=["imported"],
                 )
-                st.success(f"Imported '{uploaded.name}' as a new post!")
+                st.success(f"Imported '{uploaded.name}' as a new article!")
                 st.rerun()
-
-
-# ============================================================
-# PAGE: BROWSE & LEARN
-# ============================================================
-elif page == "Browse & Learn":
-    st.title("Browse & Learn")
-
-    tabs = st.tabs(CATEGORIES)
-    for tab, category in zip(tabs, CATEGORIES):
-        with tab:
-            cat_posts = get_posts_by_category(category)
-            cat_questions = get_questions_by_category(category)
-
-            if cat_posts:
-                st.subheader("Your Posts")
-                for post in cat_posts:
-                    with st.expander(post["title"]):
-                        st.markdown(post["content"])
-                        if post.get("tags"):
-                            st.caption(f"Tags: {', '.join(post['tags'])}")
-
-                        if st.session_state.api_key:
-                            if st.button("Generate Questions from This Post", key=f"gen_{post['id']}"):
-                                with st.spinner("Generating questions..."):
-                                    try:
-                                        client = get_client(st.session_state.api_key)
-                                        new_qs = generate_from_post(client, post["content"], post["title"], category)
-                                        st.session_state[f"generated_{post['id']}"] = new_qs
-                                    except Exception as e:
-                                        st.error(f"Error: {e}")
-
-                            if f"generated_{post['id']}" in st.session_state:
-                                st.markdown("**Generated Questions:**")
-                                for i, q in enumerate(st.session_state[f"generated_{post['id']}"], 1):
-                                    st.markdown(f"{i}. {q['question']}")
-                                    with st.expander("View Sample Answer"):
-                                        st.markdown(q.get("sample_answer", ""))
-                        else:
-                            st.caption("Enter your API key in the sidebar to generate questions.")
-            else:
-                st.info(f"No posts for {category} yet. Add content in the Content Manager.")
-
-            if cat_questions:
-                st.subheader("Question Bank")
-                for q in cat_questions:
-                    difficulty_color = {"beginner": "green", "intermediate": "orange", "advanced": "red"}.get(q.get("difficulty", ""), "gray")
-                    st.markdown(f"**Q:** {q['question']}")
-                    st.caption(f"Difficulty: {q.get('difficulty', 'N/A')}")
-                    with st.expander("Sample Answer"):
-                        st.markdown(q.get("sample_answer", "No sample answer available."))
-
-
-# ============================================================
-# PAGE: PRACTICE MODE
-# ============================================================
-elif page == "Practice Mode":
-    if not st.session_state.logged_in:
-        st.title("Practice Mode")
-        st.warning("Please log in to access Practice Mode. Use the login form in the sidebar.")
-        st.stop()
-    st.title("Practice Mode")
-
-    if not st.session_state.api_key:
-        st.warning("Please enter your Anthropic API key in the sidebar to use Practice Mode.")
-    else:
-        practice = st.session_state.practice
-
-        if not practice["active"] and not practice["completed"]:
-            st.subheader("Setup Your Practice Session")
-            p_category = st.selectbox("Category", CATEGORIES, key="p_cat")
-            p_difficulty = st.selectbox("Difficulty", ["beginner", "intermediate", "advanced"], key="p_diff")
-            p_count = st.slider("Number of Questions", 1, 10, 5, key="p_count")
-
-            if st.button("Start Practice", type="primary"):
-                with st.spinner("Generating questions..."):
-                    try:
-                        client = get_client(st.session_state.api_key)
-                        posts = get_posts_by_category(p_category)
-                        questions = generate_questions(client, p_category, p_count, p_difficulty, posts)
-                        st.session_state.practice = {
-                            "active": True,
-                            "category": p_category,
-                            "questions": questions,
-                            "current_index": 0,
-                            "answers": [],
-                            "scores": [],
-                            "completed": False,
-                        }
-                        st.rerun()
-                    except Exception as e:
-                        st.error(f"Error generating questions: {e}")
-
-        elif practice["active"] and not practice["completed"]:
-            idx = practice["current_index"]
-            total = len(practice["questions"])
-            q = practice["questions"][idx]
-
-            st.progress((idx) / total, text=f"Question {idx + 1} of {total}")
-            st.subheader(f"Question {idx + 1}")
-            st.markdown(f"**{q['question']}**")
-            st.caption(f"Difficulty: {q.get('difficulty', 'N/A')} | Category: {q.get('category', '')}")
-
-            answer = st.text_area("Your Answer", height=200, key=f"answer_{idx}")
-
-            if st.button("Submit Answer", type="primary"):
-                if answer.strip():
-                    with st.spinner("Evaluating your answer..."):
-                        try:
-                            client = get_client(st.session_state.api_key)
-                            posts = get_posts_by_category(practice.get("category", ""))
-                            result = evaluate_answer(client, q["question"], answer, posts)
-                            practice["answers"].append({"question": q["question"], "answer": answer, "result": result})
-                            practice["scores"].append(result.get("score", 0))
-
-                            save_history_entry({
-                                "category": practice.get("category", ""),
-                                "question": q["question"],
-                                "user_answer": answer,
-                                "ai_score": result.get("score", 0),
-                                "ai_feedback": result.get("feedback", ""),
-                            })
-
-                            st.markdown(f"### Score: {result.get('score', 'N/A')} / 10")
-                            st.markdown(f"**Feedback:** {result.get('feedback', '')}")
-
-                            if result.get("strengths"):
-                                st.markdown("**Strengths:**")
-                                for s in result["strengths"]:
-                                    st.markdown(f"- {s}")
-
-                            if result.get("improvements"):
-                                st.markdown("**Areas for Improvement:**")
-                                for imp in result["improvements"]:
-                                    st.markdown(f"- {imp}")
-
-                            if result.get("model_answer"):
-                                with st.expander("View Model Answer"):
-                                    st.markdown(result["model_answer"])
-
-                            if idx + 1 < total:
-                                if st.button("Next Question"):
-                                    practice["current_index"] += 1
-                                    st.rerun()
-                            else:
-                                if st.button("View Summary"):
-                                    practice["completed"] = True
-                                    practice["active"] = False
-                                    st.rerun()
-                        except Exception as e:
-                            st.error(f"Error evaluating answer: {e}")
-                else:
-                    st.warning("Please write an answer before submitting.")
-
-        elif practice["completed"]:
-            st.subheader("Practice Session Summary")
-            scores = practice["scores"]
-            avg = sum(scores) / len(scores) if scores else 0
-
-            col1, col2, col3 = st.columns(3)
-            col1.metric("Questions", len(scores))
-            col2.metric("Average Score", f"{avg:.1f} / 10")
-            col3.metric("Category", practice.get("category", ""))
-
-            st.markdown("---")
-            for i, entry in enumerate(practice["answers"], 1):
-                with st.expander(f"Q{i}: {entry['question'][:80]}... | Score: {entry['result'].get('score', 'N/A')}/10"):
-                    st.markdown(f"**Your Answer:** {entry['answer']}")
-                    st.markdown(f"**Feedback:** {entry['result'].get('feedback', '')}")
-                    if entry["result"].get("model_answer"):
-                        st.markdown(f"**Model Answer:** {entry['result']['model_answer']}")
-
-            if st.button("Start New Practice", type="primary"):
-                st.session_state.practice = defaults["practice"].copy()
-                st.rerun()
-
-    # Practice History
-    st.markdown("---")
-    with st.expander("Practice History"):
-        history = load_history()
-        if history:
-            for entry in reversed(history[-20:]):
-                score = entry.get("ai_score", "N/A")
-                cat = entry.get("category", "")
-                ts = entry.get("timestamp", "")[:16].replace("T", " ")
-                q = entry.get("question", "")[:100]
-                st.markdown(f"**{ts}** | {cat} | Score: **{score}/10**")
-                st.caption(q)
-                st.markdown("---")
-        else:
-            st.info("No practice history yet.")
 
 
 # ============================================================
 # PAGE: AI CHAT
 # ============================================================
 elif page == "AI Chat":
-    st.title("AI Journalist Chat")
+    st.markdown('<p class="main-header">AI Tech Chat</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sub-header">Ask AI anything about the tech topics covered in the journal</p>', unsafe_allow_html=True)
 
     if not st.session_state.api_key:
-        st.warning("Please enter your Anthropic API key in the sidebar to use AI Chat.")
+        st.warning("Enter your Anthropic API key in the sidebar to start chatting.")
     else:
-        chat_cat = st.selectbox("Context Category", CATEGORIES, key="chat_cat_select")
+        chat_cat = st.selectbox("Topic Context", CATEGORIES, key="chat_cat_select")
 
         if st.button("Clear Chat"):
             st.session_state.chat_messages = []
@@ -423,13 +305,13 @@ elif page == "AI Chat":
             with st.chat_message(msg["role"]):
                 st.markdown(msg["content"])
 
-        if prompt := st.chat_input("Ask me anything about interview preparation..."):
+        if prompt := st.chat_input("Ask about any tech topic..."):
             st.session_state.chat_messages.append({"role": "user", "content": prompt})
             with st.chat_message("user"):
                 st.markdown(prompt)
 
             with st.chat_message("assistant"):
-                with st.spinner("Thinking..."):
+                with st.spinner("Researching..."):
                     try:
                         client = get_client(st.session_state.api_key)
                         posts = get_posts_by_category(chat_cat)
