@@ -39,12 +39,21 @@ def ensure_data_dir():
             shutil.copy(seed, QUESTIONS_FILE)
         else:
             _write_json(QUESTIONS_FILE, [])
-    if not POSTS_FILE.exists():
-        seed_posts = SEED_DIR / "default_posts.json"
-        if seed_posts.exists():
-            shutil.copy(seed_posts, POSTS_FILE)
+    # Always sync posts from seed data (merge new seed posts into existing)
+    seed_posts = SEED_DIR / "default_posts.json"
+    if seed_posts.exists():
+        seed_data = _read_json(seed_posts)
+        if POSTS_FILE.exists():
+            existing = _read_json(POSTS_FILE)
+            existing_titles = {p["title"] for p in existing}
+            new_posts = [p for p in seed_data if p["title"] not in existing_titles]
+            if new_posts:
+                existing.extend(new_posts)
+                _write_json(POSTS_FILE, existing)
         else:
-            _write_json(POSTS_FILE, [])
+            _write_json(POSTS_FILE, seed_data)
+    elif not POSTS_FILE.exists():
+        _write_json(POSTS_FILE, [])
     if not HISTORY_FILE.exists():
         _write_json(HISTORY_FILE, [])
 
